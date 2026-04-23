@@ -3,14 +3,18 @@ y# 🚀 PLAN DE DESPLIEGUE LINGUAFLOW
 ## ✅ PASOS COMPLETADOS
 - [x] Plan aprobado por usuario
 - [x] Inicialización de archivos base Git
-- [x] Creados: TODO.md, .gitignore, backend/.env.example
+- [x] Creados: TODO.md, .gitignore, backend/.env.example, DEPLOY.md
 - [x] Push a GitHub con vercel.json raíz (fix monorepo)
 - [x] Vercel project configurado (team/org ID obtenido)
 - [x] Build local frontend exitoso (dist/ generado)
+- [x] Backend preparado para producción (graceful shutdown, mongoose fix)
+- [x] render.yaml actualizado para MongoDB Atlas
+- [x] GitHub repo sincronizado (3 commits)
 
 ## 🔄 EN PROCESO
-- [ ] Preparar backend para Render
-- [ ] Configurar MongoDB Atlas
+- [ ] MongoDB Atlas: crear cluster (requiere acción del usuario)
+- [ ] Render: deploy backend (requiere acción del usuario)
+- [ ] Vercel: deploy frontend (requiere acción del usuario)
 
 ## ⏳ PENDIENTES
 
