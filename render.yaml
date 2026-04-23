@@ -1,0 +1,40 @@
+# render.yaml — Configuración para despliegue en Render.com
+# Documentación: https://render.com/docs/blueprint-spec
+
+services:
+  # ── Backend API ──────────────────────────────
+  - type: web
+    name: linguaflow-api
+    runtime: node
+    region: oregon          # Cambia a: frankfurt (EU), singapore (Asia), ohio (US East)
+    plan: free              # free | starter ($7/mes) | standard ($25/mes)
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: node server.js
+    healthCheckPath: /health
+    autoDeploy: true
+
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: MONGO_URI
+        fromDatabase:
+          name: linguaflow-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true        # Render genera un valor aleatorio seguro
+      - key: JWT_REFRESH_SECRET
+        generateValue: true
+      - key: CLIENT_URL
+        value: https://linguaflow.vercel.app   # URL de tu frontend en Vercel/Netlify
+      # Agrega el resto de envVars manualmente en el dashboard de Render
+      # (SMTP_*, VAPID_*, GOOGLE_*) ya que contienen secretos
+
+databases:
+  - name: linguaflow-db
+    databaseName: linguaflow
+    user: linguaflow_user
+    plan: free              # free (90 días) | starter ($7/mes)
+    region: oregon
