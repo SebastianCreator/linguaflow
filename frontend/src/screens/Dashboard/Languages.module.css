@@ -1,0 +1,50 @@
+/* src/screens/Dashboard/Languages.module.css */
+.page { max-width: 1000px; margin: 0 auto; }
+.header { margin-bottom: 28px; }
+.title  { font-family: var(--font-display); font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+.subtitle { font-size: 14px; color: var(--text-muted); }
+
+.cefrInfo {
+  background: var(--bg-card);
+  border: 1px solid rgba(99,102,241,0.1);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-bottom: 28px;
+}
+.cefrTitle { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 12px; }
+.cefrLevels { display: flex; gap: 12px; flex-wrap: wrap; }
+.cefrItem { display: flex; align-items: center; gap: 6px; }
+.cefrDesc { font-size: 11px; color: var(--text-muted); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+.skeletonCard {
+  height: 280px;
+  background: var(--bg-elevated);
+  border-radius: var(--radius-lg);
+  animation: shimmer 1.5s infinite;
+  background: linear-gradient(90deg, var(--bg-elevated) 25%, var(--bg-card) 50%, var(--bg-elevated) 75%);
+  background-size: 200% 100%;
+}
+@keyframes shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+
+.enrolledCard { border-color: rgba(16,185,129,0.25) !important; }
+.cardTop { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px; }
+.flag { font-size: 40px; }
+.langName { font-family: var(--font-display); font-size: 18px; font-weight: 700; margin-bottom: 2px; }
+.langNative { font-size: 12px; color: var(--text-muted); margin-bottom: 14px; }
+.difficulty { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; flex-wrap: wrap; }
+.diffLabel { font-size: 11px; color: var(--text-muted); }
+.diffDots { display: flex; gap: 3px; }
+.diffDot { width: 8px; height: 8px; border-radius: 2px; transition: background 0.2s; }
+.diffText { font-size: 11px; font-weight: 600; }
+.levels { display: flex; gap: 4px; flex-wrap: wrap; margin-bottom: 14px; }
+.enrolledInfo { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted); padding: 8px; background: rgba(16,185,129,0.06); border-radius: 6px; margin-bottom: 10px; }
+.xpText { color: var(--accent-amber); font-weight: 600; margin-left: auto; }
+
+@media (max-width: 600px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}

@@ -1,0 +1,94 @@
+/* src/screens/Profile/Profile.module.css */
+.page { max-width: 900px; margin: 0 auto; }
+.pageTitle { font-family: var(--font-display); font-size: 26px; font-weight: 700; margin-bottom: 24px; }
+
+/* ── User Card ── */
+.userCard { margin-bottom: 20px; }
+.userTop { display: flex; align-items: flex-start; gap: 16px; flex-wrap: wrap; }
+.avatar {
+  width: 64px; height: 64px; flex-shrink: 0;
+  background: linear-gradient(135deg, var(--brand-primary), var(--accent-emerald));
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-weight: 700; font-size: 26px; color: white;
+}
+.userInfo { flex: 1; min-width: 0; }
+.userName  { font-family: var(--font-display); font-size: 22px; font-weight: 700; margin-bottom: 4px; }
+.userEmail { font-size: 13px; color: var(--text-muted); margin-bottom: 10px; }
+.userMeta  { display: flex; gap: 8px; flex-wrap: wrap; }
+.metaTag   {
+  font-size: 12px; color: var(--text-secondary);
+  background: var(--bg-elevated); border: 1px solid rgba(99,102,241,0.1);
+  padding: 4px 10px; border-radius: var(--radius-full);
+}
+.nameInput { font-size: 18px; font-weight: 600; padding: 6px 10px; border-radius: 6px; margin-bottom: 4px; }
+.editBtn { flex-shrink: 0; }
+
+/* ── Stats ── */
+.statsGrid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 12px; margin-bottom: 20px;
+}
+
+/* ── Sections Grid ── */
+.sectionsGrid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px; }
+.fullWidth { grid-column: 1 / -1; }
+.sectionTitle { font-family: var(--font-display); font-size: 16px; font-weight: 600; margin-bottom: 16px; }
+
+/* ── Preferences ── */
+.prefList  { display: flex; flex-direction: column; gap: 14px; }
+.prefItem  { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.prefLabel { font-size: 13px; color: var(--text-secondary); }
+.prefValue { font-size: 13px; font-weight: 500; color: var(--text-primary); }
+
+/* ── Actions ── */
+.actionList { display: flex; flex-direction: column; gap: 16px; }
+.actionItem { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.actionName { font-size: 14px; font-weight: 500; color: var(--text-primary); margin-bottom: 2px; }
+.actionDesc { font-size: 12px; color: var(--text-muted); }
+
+/* ── Toggle ── */
+.toggle {
+  width: 44px; height: 24px; border-radius: 12px;
+  background: var(--bg-elevated); border: 1px solid rgba(99,102,241,0.2);
+  position: relative; cursor: pointer; transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+.toggle.toggleOn { background: var(--brand-primary); border-color: var(--brand-primary); }
+.toggleThumb {
+  position: absolute; top: 2px; left: 2px;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: white; transition: transform var(--transition-base);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+.toggle.toggleOn .toggleThumb { transform: translateX(20px); }
+
+/* ── Language Progress ── */
+.langProgressList { display: flex; flex-direction: column; gap: 12px; }
+.langProgressItem {
+  display: flex; align-items: center; gap: 14px;
+  padding: 12px; background: var(--bg-elevated); border-radius: var(--radius-md);
+}
+.langProgName { font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+.langProgMeta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+/* ── Achievements ── */
+.achievementGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 12px; }
+.achievementCard {
+  background: var(--bg-elevated); border: 1px solid rgba(99,102,241,0.12);
+  border-radius: var(--radius-md); padding: 14px 10px;
+  text-align: center; transition: all var(--transition-fast);
+}
+.achievementCard:hover { border-color: rgba(99,102,241,0.3); background: var(--brand-light); }
+.achieveIcon { font-size: 28px; margin-bottom: 6px; }
+.achieveName { font-size: 12px; font-weight: 600; color: var(--text-primary); margin-bottom: 4px; }
+.achieveXP   { font-size: 11px; color: var(--accent-amber); font-weight: 700; }
+
+/* ── Danger Zone ── */
+.dangerZone { padding: 16px 0; border-top: 1px solid rgba(99,102,241,0.08); margin-top: 8px; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .statsGrid { grid-template-columns: repeat(2, 1fr); }
+  .sectionsGrid { grid-template-columns: 1fr; }
+}

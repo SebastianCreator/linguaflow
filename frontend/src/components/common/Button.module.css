@@ -1,0 +1,83 @@
+/* src/components/common/Button.module.css */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.sm { padding: 6px 14px; font-size: 13px; }
+.md { padding: 10px 20px; font-size: 14px; }
+.lg { padding: 13px 28px; font-size: 15px; }
+
+/* Variants */
+.primary {
+  background: var(--brand-primary);
+  color: white;
+  box-shadow: 0 2px 12px rgba(99,102,241,0.35);
+}
+.primary:hover:not(:disabled) {
+  background: var(--brand-hover);
+  box-shadow: 0 4px 20px rgba(99,102,241,0.5);
+  transform: translateY(-1px);
+}
+
+.secondary {
+  background: var(--bg-elevated);
+  color: var(--text-primary);
+  border: 1px solid rgba(99,102,241,0.2);
+}
+.secondary:hover:not(:disabled) {
+  background: var(--brand-light);
+  border-color: var(--brand-primary);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 1px solid rgba(148,163,184,0.2);
+}
+.ghost:hover:not(:disabled) { background: var(--bg-elevated); color: var(--text-primary); }
+
+.danger {
+  background: rgba(244,63,94,0.15);
+  color: var(--accent-rose);
+  border: 1px solid rgba(244,63,94,0.3);
+}
+.danger:hover:not(:disabled) { background: rgba(244,63,94,0.25); }
+
+.success {
+  background: rgba(16,185,129,0.15);
+  color: var(--accent-emerald);
+  border: 1px solid rgba(16,185,129,0.3);
+}
+.success:hover:not(:disabled) { background: rgba(16,185,129,0.25); }
+
+.fullWidth { width: 100%; }
+
+.icon { display: flex; align-items: center; font-size: 1.1em; }
+
+/* Loading spinner */
+.spinner {
+  width: 16px; height: 16px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
