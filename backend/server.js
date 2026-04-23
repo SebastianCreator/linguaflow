@@ -82,8 +82,16 @@ app.use((req, res) => {
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   logger.info(`🚀 LinguaFlow server running on port ${PORT} [${process.env.NODE_ENV || 'development'}]`);
+});
+
+// Graceful shutdown
+process.on('SIGTERM', () => {
+  logger.info('SIGTERM received, shutting down gracefully');
+  server.close(() => {
+    logger.info('Process terminated');
+  });
 });
 
 module.exports = app;

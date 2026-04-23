@@ -1,12 +1,16 @@
-# 🚀 PLAN DE DESPLIEGUE LINGUAFLOW
+y# 🚀 PLAN DE DESPLIEGUE LINGUAFLOW
 
 ## ✅ PASOS COMPLETADOS
 - [x] Plan aprobado por usuario
 - [x] Inicialización de archivos base Git
 - [x] Creados: TODO.md, .gitignore, backend/.env.example
+- [x] Push a GitHub con vercel.json raíz (fix monorepo)
+- [x] Vercel project configurado (team/org ID obtenido)
+- [x] Build local frontend exitoso (dist/ generado)
 
 ## 🔄 EN PROCESO
-- [ ] Preparar despliegue Vercel (Frontend)
+- [ ] Preparar backend para Render
+- [ ] Configurar MongoDB Atlas
 
 ## ⏳ PENDIENTES
 

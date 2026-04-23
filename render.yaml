@@ -1,13 +1,15 @@
 # render.yaml — Configuración para despliegue en Render.com
 # Documentación: https://render.com/docs/blueprint-spec
+# NOTA: MongoDB no está disponible como servicio nativo en Render.
+# Usa MongoDB Atlas (gratuito): https://cloud.mongodb.com
 
 services:
   # ── Backend API ──────────────────────────────
   - type: web
     name: linguaflow-api
     runtime: node
-    region: oregon          # Cambia a: frankfurt (EU), singapore (Asia), ohio (US East)
-    plan: free              # free | starter ($7/mes) | standard ($25/mes)
+    region: oregon
+    plan: free
     rootDir: backend
     buildCommand: npm install
     startCommand: node server.js
@@ -18,23 +20,17 @@ services:
       - key: NODE_ENV
         value: production
       - key: PORT
-        value: 5000
+        value: 10000
       - key: MONGO_URI
-        fromDatabase:
-          name: linguaflow-db
-          property: connectionString
+        sync: false  # Configurar manualmente en dashboard con tu URI de Atlas
       - key: JWT_SECRET
-        generateValue: true        # Render genera un valor aleatorio seguro
+        generateValue: true
       - key: JWT_REFRESH_SECRET
         generateValue: true
       - key: CLIENT_URL
-        value: https://linguaflow.vercel.app   # URL de tu frontend en Vercel/Netlify
-      # Agrega el resto de envVars manualmente en el dashboard de Render
-      # (SMTP_*, VAPID_*, GOOGLE_*) ya que contienen secretos
+        value: https://linguaflow.vercel.app
+      # Variables opcionales (configurar manualmente en dashboard):
+      # - SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS
+      # - VAPID_PUBLIC_KEY, VAPID_PRIVATE_KEY, VAPID_EMAIL
+      # - GOOGLE_TTS_API_KEY, GOOGLE_STT_API_KEY
 
-databases:
-  - name: linguaflow-db
-    databaseName: linguaflow
-    user: linguaflow_user
-    plan: free              # free (90 días) | starter ($7/mes)
-    region: oregon
