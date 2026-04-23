@@ -6,20 +6,22 @@
 - [x] Creados: TODO.md, .gitignore, backend/.env.example
 
 ## 🔄 EN PROCESO
+- [ ] Preparar despliegue Vercel (Frontend)
 
 ## ⏳ PENDIENTES
 
-### 1️⃣ GitHub Repository (PRIORIDAD ALTA)
+### 1️⃣ GitHub Repository (PRIORIDAD ALTA) ✅ COMPLETADO
 - [x] Crear .gitignore
 - [x] Inicializar git init
-- [ ] git remote add origin
-- [ ] git add . && git commit -m "Initial commit"
-- [ ] git push -u origin main
+- [x] git remote add origin https://github.com/SebastianCreator/linguaflow.git
+- [x] git add . && git commit -m "Initial commit: LinguaFlow full-stack app"
+- [x] git push -u origin main
 
 ### 2️⃣ Preparar Frontend Vercel
-- [ ] Crear frontend/.env
-- [ ] npm run build --workspace=frontend
-- [ ] vercel deploy
+- [x] Crear frontend/.env
+- [x] Dependencias instaladas
+- [x] Vercel CLI autenticado
+- [ ] vercel deploy --prod (en progreso...)
 
 ### 3️⃣ Configurar MongoDB Atlas
 - [ ] Crear cluster gratuito
@@ -34,4 +36,4 @@
 - [ ] Actualizar VITE_API_URL en Vercel
 - [ ] Test completo
 
-**Estado actual:** Configurando remote GitHub y primer push...
+**Estado actual:** GitHub ✅ → Preparando Vercel Frontend
