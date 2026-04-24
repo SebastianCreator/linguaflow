@@ -51,3 +51,5 @@ Thumbs.db
 # Mobile
 mobile/android/app/build/
 mobile/ios/build/
+.vercel
+.env*.local
