@@ -26,7 +26,7 @@
     }
   ],
   "env": {
-    "VITE_API_URL": "https://api-linguaflow.onrender.com/api"
+    "VITE_API_URL": "https://linguaflow-api-264a.onrender.com/api"
   }
 }
 
