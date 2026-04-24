@@ -29,34 +29,9 @@ connectDB();
 // ── Security middleware ──
 app.use(helmet());
 
-// CORS: permitir múltiples origins (producción, preview, local)
-const allowedOrigins = [
-  process.env.CLIENT_URL,
-  'http://localhost:3000',
-  'http://localhost:5173',
-  'https://linguaflow.vercel.app',
-  'https://linguaflow-lime.vercel.app',
-  // Permitir cualquier subdominio de vercel.app (preview deployments)
-].filter(Boolean);
-
+// CORS: permitir TODOS los origins (temporal para debug, restringir después)
 app.use(cors({
-  origin: function (origin, callback) {
-    // Permitir requests sin origin (mobile apps, Postman, etc.)
-    if (!origin) return callback(null, true);
-    
-    // Permitir si está en la lista o es un preview de Vercel
-    const isAllowed = allowedOrigins.some(allowed => {
-      if (!allowed) return false;
-      return origin === allowed || origin.endsWith('.vercel.app');
-    });
-    
-    if (isAllowed) {
-      callback(null, true);
-    } else {
-      logger.warn(`CORS blocked origin: ${origin}`);
-      callback(new Error(`Origin ${origin} not allowed by CORS`));
-    }
-  },
+  origin: true,
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
