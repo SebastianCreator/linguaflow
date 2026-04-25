@@ -23,7 +23,7 @@ module.exports = [
 👋 "Hello" → Picture a waving hand` }
     ],
     exercises: [
-      { type: 'image-match', prompt: 'Match the greeting with the correct image description', options: ['🌅', '👋', '🌇', '😴'], correctAnswer: { 'Good morning': '🌅', 'Hello': '👋', 'Good evening': '🌇', 'Good night': '😴' }, explanation: 'Associate each greeting with a visual scene.', xpReward: 15 },
+      { type: 'image-match', prompt: 'Match the greeting with the correct image', promptEs: 'Empareja el saludo con la imagen correcta', options: ['🌅', '👋', '🌇', '😴'], correctAnswer: { 'Good morning': '🌅', 'Hello': '👋', 'Good evening': '🌇', 'Good night': '😴' }, explanation: 'Associate each greeting with a visual scene.', explanationEs: 'Asocia cada saludo con una imagen visual.', xpReward: 15 },
       { type: 'dictation', prompt: 'Listen and write: "Good morning, how are you?"', correctAnswer: 'Good morning, how are you?', explanation: 'Train your ear and spelling simultaneously.', xpReward: 20 },
       { type: 'mnemonic', prompt: 'Create a personal story for "Goodbye": What image helps YOU remember it? Write one sentence.', correctAnswer: 'open', explanation: 'Personal connections improve memory by 40%.', xpReward: 15 },
       { type: 'interleaved', prompt: 'Quick! What greeting would you use at 7 AM? At 9 PM? Saying farewell?', correctAnswer: ['Good morning', 'Good evening', 'Goodbye'], explanation: 'Mixing contexts forces deeper retrieval.', xpReward: 15 },
@@ -71,8 +71,8 @@ module.exports = [
       { type: 'example', content: 'Cloze technique: "The sky is ___ and the grass is ___." You fill gaps from CONTEXT, not translation.' }
     ],
     exercises: [
-      { type: 'image-match', prompt: 'Match: "The stop sign is ___"', options: ['red', 'blue', 'green', 'yellow'], correctAnswer: 'red', xpReward: 10 },
-      { type: 'image-match', prompt: 'Match: "The ocean is ___"', options: ['red', 'blue', 'green', 'black'], correctAnswer: 'blue', xpReward: 10 },
+      { type: 'image-match', prompt: 'Match: "The stop sign is ___"', promptEs: 'Empareja: "La señal de pare es ___"', options: ['red', 'blue', 'green', 'yellow'], correctAnswer: 'red', xpReward: 10 },
+      { type: 'image-match', prompt: 'Match: "The ocean is ___"', promptEs: 'Empareja: "El océano es ___"', options: ['red', 'blue', 'green', 'black'], correctAnswer: 'blue', xpReward: 10 },
       { type: 'cloze', prompt: 'Complete: "Bananas are ___, lemons are ___, and strawberries are ___."', correctAnswer: ['yellow', 'yellow', 'red'], explanation: 'Cloze uses context clues instead of direct translation.', xpReward: 20 },
       { type: 'cloze', prompt: 'Complete: "At night the sky is ___. In the day it is ___."', correctAnswer: ['black', 'blue'], xpReward: 15 },
       { type: 'task-based', prompt: 'You are shopping. Ask for "a red shirt, size medium, and blue jeans." Write what you say.', correctAnswer: 'I would like a red shirt, size medium, and blue jeans, please.', xpReward: 20 }
@@ -228,7 +228,7 @@ Context clues: "of the Day" → Soup or Special. "rice" → with. Price → Cost
     exercises: [
       { type: 'cloze', prompt: 'Sign: "___ OPEN ___ 9:00 ___ 18:00. Closed ___ Sundays."', correctAnswer: ['We are', 'from', 'to', 'on'], xpReward: 20 },
       { type: 'cloze', prompt: 'Menu: "___ of the Day: Tomato ___ with bread. ___: $8."', correctAnswer: ['Soup', 'soup', 'Price'], xpReward: 20 },
-      { type: 'image-match', prompt: 'A sign shows 🚫 + 🚬. What does it say?', options: ['No smoking', 'Smoke here', 'Smoking area', 'Cigarettes for sale'], correctAnswer: 'No smoking', xpReward: 15 },
+      { type: 'image-match', prompt: 'A sign shows 🚫 + 🚬. What does it say?', promptEs: 'Una señal muestra 🚫 + 🚬. ¿Qué dice?', options: ['No smoking', 'Smoke here', 'Smoking area', 'Cigarettes for sale'], correctAnswer: 'No smoking', xpReward: 15 },
       { type: 'task-based', prompt: 'You read a train schedule. Your train to Paris leaves at 14:30. Write the time in words.', correctAnswer: 'Two thirty pm / Fourteen thirty.', xpReward: 15 }
     ],
     xpReward: 70, totalDurationMinutes: 15, offlineAvailable: true, isPublished: true,

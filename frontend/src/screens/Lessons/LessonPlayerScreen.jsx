@@ -186,6 +186,9 @@ export default function LessonPlayerScreen() {
         >
           <div className={styles.exerciseType}>{exercise?.type?.replace(/-/g, ' ')}</div>
           <h2 className={styles.prompt}>{exercise?.prompt}</h2>
+          {exercise?.promptEs && (
+            <p className={styles.promptEs}>🌐 {exercise.promptEs}</p>
+          )}
 
           {/* Audio general */}
           {exercise?.promptAudio && (
@@ -301,21 +304,29 @@ export default function LessonPlayerScreen() {
           {/* ── IMAGE-MATCH ── */}
           {exercise?.type === 'image-match' && (
             <div className={styles.imageMatchWrap}>
-              {exercise.options?.map((opt, i) => (
-                <motion.button
-                  key={i}
-                  className={[
-                    styles.imageMatchOption,
-                    answer === opt ? styles.optionSelected : '',
-                    submitted && opt === exercise.correctAnswer ? styles.optionCorrect : '',
-                    submitted && answer === opt && answer !== exercise.correctAnswer ? styles.optionWrong : '',
-                  ].join(' ')}
-                  onClick={() => !submitted && setAnswer(opt)}
-                  whileTap={{ scale: 0.97 }}
-                >
-                  <span className={styles.imageMatchEmoji}>{opt}</span>
-                </motion.button>
-              ))}
+              {(() => {
+                const isObjectMatch = exercise.correctAnswer && typeof exercise.correctAnswer === 'object' && !Array.isArray(exercise.correctAnswer);
+                const labels = isObjectMatch ? Object.keys(exercise.correctAnswer) : null;
+                return exercise.options?.map((opt, i) => {
+                  const label = isObjectMatch && labels ? labels[i] : null;
+                  return (
+                    <motion.button
+                      key={i}
+                      className={[
+                        styles.imageMatchOption,
+                        answer === opt ? styles.optionSelected : '',
+                        submitted && opt === exercise.correctAnswer ? styles.optionCorrect : '',
+                        submitted && answer === opt && answer !== exercise.correctAnswer ? styles.optionWrong : '',
+                      ].join(' ')}
+                      onClick={() => !submitted && setAnswer(opt)}
+                      whileTap={{ scale: 0.97 }}
+                    >
+                      <span className={styles.imageMatchEmoji}>{opt}</span>
+                      {label && <span className={styles.imageMatchLabel}>{label}</span>}
+                    </motion.button>
+                  );
+                });
+              })()}
             </div>
           )}
 

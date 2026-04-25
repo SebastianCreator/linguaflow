@@ -1,3 +1,7 @@
+
+> fluenta-backend@1.0.0 load
+> node utils/loadData.js
+
 ✅ MongoDB connected
 🗑️  Collections cleared
 🌍 5 languages inserted

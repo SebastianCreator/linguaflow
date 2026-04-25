@@ -11,6 +11,7 @@ const exerciseSchema = new mongoose.Schema({
     required: true
   },
   prompt: { type: String, required: true },
+  promptEs: String,    // Spanish translation of prompt
   promptAudio: String, // URL to audio file
   options: [String],   // For multiple-choice / matching
   correctAnswer: mongoose.Schema.Types.Mixed, // String, Array, or Object

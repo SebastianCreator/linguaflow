@@ -34,7 +34,13 @@
 .prompt {
   font-family: var(--font-display);
   font-size: 22px; font-weight: 600;
-  color: var(--text-primary); margin-bottom: 24px; line-height: 1.4;
+  color: var(--text-primary); margin-bottom: 8px; line-height: 1.4;
+}
+.promptEs {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  font-style: italic;
 }
 .audioBtn {
   background: var(--bg-elevated); border: 1px solid rgba(99,102,241,0.2);
@@ -181,17 +187,27 @@
 /* ── Image Match ── */
 .imageMatchWrap { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 20px; justify-content: center; }
 .imageMatchOption {
-  width: 80px; height: 80px;
-  display: flex; align-items: center; justify-content: center;
+  min-width: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 12px 16px;
   background: var(--bg-elevated);
   border: 2px solid transparent;
   border-radius: var(--radius-md);
-  font-size: 36px;
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 .imageMatchOption:hover { border-color: rgba(99,102,241,0.35); background: var(--brand-light); transform: scale(1.05); }
-.imageMatchEmoji { line-height: 1; }
+.imageMatchEmoji { font-size: 36px; line-height: 1; }
+.imageMatchLabel {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-align: center;
+}
 
 /* ── Conversation Sim ── */
 .conversationWrap { margin-bottom: 20px; }
