@@ -46,7 +46,7 @@ export default function RegisterScreen() {
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.field}>
           <label className={styles.label}>Nombre completo</label>
-          <input type="text" value={form.name} onChange={set('name')} placeholder="María García" required minLength={2} />
+          <input type="text" value={form.name} onChange={set('name')} placeholder="Roiss Morantes" required minLength={2} />
         </div>
 
         <div className={styles.field}>
