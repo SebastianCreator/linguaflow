@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "linguaflow",
+  "name": "fluenta",
   "buildCommand": "cd frontend && npm install && npm run build",
   "outputDirectory": "frontend/dist",
   "installCommand": "cd frontend && npm install",
@@ -26,7 +26,7 @@
     }
   ],
   "env": {
-    "VITE_API_URL": "https://linguaflow-api-264a.onrender.com/api"
+    "VITE_API_URL": "https://fluenta-api-264a.onrender.com/api"
   }
 }
 

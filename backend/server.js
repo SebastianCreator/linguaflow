@@ -1,5 +1,5 @@
 // ─────────────────────────────────────────────
-//  LinguaFlow · server.js  — Express entry point
+//  Fluenta · server.js  — Express entry point
 // ─────────────────────────────────────────────
 require('dotenv').config();
 const express = require('express');
@@ -88,7 +88,7 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => {
-  logger.info(`🚀 LinguaFlow server running on port ${PORT} [${process.env.NODE_ENV || 'development'}]`);
+  logger.info(`🚀 Fluenta server running on port ${PORT} [${process.env.NODE_ENV || 'development'}]`);
 });
 
 // Graceful shutdown

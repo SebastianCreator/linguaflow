@@ -27,7 +27,7 @@ export default function RegisterScreen() {
 
     const result = await register(form.name, form.email, form.password, form.nativeLanguage);
     if (result.success) {
-      toast.success('¡Cuenta creada! Bienvenido a LinguaFlow 🎉');
+      toast.success('¡Cuenta creada! Bienvenido a Fluenta 🎉');
       navigate('/languages');
     } else {
       toast.error(result.error);

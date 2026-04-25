@@ -7,7 +7,7 @@ const webpush = require('web-push');
 // Configure web-push
 if (process.env.VAPID_PUBLIC_KEY && process.env.VAPID_PRIVATE_KEY) {
   webpush.setVapidDetails(
-    'mailto:' + (process.env.VAPID_EMAIL || 'admin@linguaflow.app'),
+    'mailto:' + (process.env.VAPID_EMAIL || 'admin@fluenta.app'),
     process.env.VAPID_PUBLIC_KEY,
     process.env.VAPID_PRIVATE_KEY
   );
@@ -44,7 +44,7 @@ router.post('/test', protect, async (req, res, next) => {
       return res.status(400).json({ error: 'No push subscription found' });
     }
     const payload = JSON.stringify({
-      title: '📚 LinguaFlow',
+      title: '📚 Fluenta',
       body: '¡Es hora de practicar! Tu racha te espera.',
       icon: '/icons/icon-192.png',
       url: '/dashboard'

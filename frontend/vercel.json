@@ -25,6 +25,6 @@
     }
   ],
   "env": {
-    "VITE_API_URL": "@linguaflow_api_url"
+    "VITE_API_URL": "@fluenta_api_url"
   }
 }

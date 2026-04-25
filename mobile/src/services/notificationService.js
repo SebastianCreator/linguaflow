@@ -16,7 +16,7 @@ export const setupNotifications = () => {
 
   // Create default channel for Android
   PushNotification.createChannel(
-    { channelId:'linguaflow-reminders', channelName:'Recordatorios de estudio', importance:4, vibrate:true },
+    { channelId:'fluenta-reminders', channelName:'Recordatorios de estudio', importance:4, vibrate:true },
     () => {}
   );
 };
@@ -28,8 +28,8 @@ export const scheduleStudyReminder = (hour = 9, minute = 0) => {
   if (date < new Date()) date.setDate(date.getDate() + 1);
 
   PushNotification.localNotificationSchedule({
-    channelId:   'linguaflow-reminders',
-    title:       '📚 LinguaFlow',
+    channelId:   'fluenta-reminders',
+    title:       '📚 Fluenta',
     message:     '¡Es hora de tu sesión de estudio! Tu racha te espera.',
     date,
     repeatType: 'day',
@@ -46,12 +46,12 @@ export const cancelReminders = () => {
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const API_URL = 'https://api.linguaflow.app/api'; // Change to your backend URL
+const API_URL = 'https://api.fluenta.app/api'; // Change to your backend URL
 
 const api = axios.create({ baseURL: API_URL, timeout: 15000, headers: { 'Content-Type': 'application/json' } });
 
 api.interceptors.request.use(async (config) => {
-  const token = await AsyncStorage.getItem('linguaflow_token');
+  const token = await AsyncStorage.getItem('fluenta_token');
   if (token) config.headers['Authorization'] = `Bearer ${token}`;
   return config;
 });
@@ -61,15 +61,15 @@ api.interceptors.response.use(
   async (err) => {
     if (err.response?.status === 401 && !err.config._retry) {
       err.config._retry = true;
-      const rt = await AsyncStorage.getItem('linguaflow_refresh');
+      const rt = await AsyncStorage.getItem('fluenta_refresh');
       if (rt) {
         try {
           const { data } = await axios.post(`${API_URL}/auth/refresh`, { refreshToken: rt });
-          await AsyncStorage.setItem('linguaflow_token', data.token);
+          await AsyncStorage.setItem('fluenta_token', data.token);
           err.config.headers['Authorization'] = `Bearer ${data.token}`;
           return api(err.config);
         } catch {
-          await AsyncStorage.multiRemove(['linguaflow_token','linguaflow_refresh']);
+          await AsyncStorage.multiRemove(['fluenta_token','fluenta_refresh']);
         }
       }
     }

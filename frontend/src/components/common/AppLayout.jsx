@@ -40,7 +40,7 @@ export default function AppLayout() {
           {/* Logo */}
           <NavLink to="/dashboard" className={styles.logo}>
             <span className={styles.logoIcon}>🌐</span>
-            <span className={styles.logoText}>LinguaFlow</span>
+            <span className={styles.logoText}>Fluenta</span>
           </NavLink>
 
           {/* Navigation */}
@@ -82,7 +82,7 @@ export default function AppLayout() {
       <header className={styles.mobileHeader}>
         <NavLink to="/dashboard" className={styles.mobileLogo}>
           <span>🌐</span>
-          <span>LinguaFlow</span>
+          <span>Fluenta</span>
         </NavLink>
         <button
           className={styles.menuBtn}

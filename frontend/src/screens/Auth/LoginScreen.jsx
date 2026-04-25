@@ -74,7 +74,7 @@ export default function LoginScreen() {
         <button
           type="button"
           className={styles.demoBtn}
-          onClick={() => setForm({ email: 'demo@linguaflow.app', password: 'Demo1234' })}
+          onClick={() => setForm({ email: 'demo@fluenta.app', password: 'Demo1234' })}
         >
           🎯 Usar cuenta demo
         </button>

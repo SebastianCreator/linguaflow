@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ═══════════════════════════════════════════════════════════════════════
-#  LinguaFlow — Web Deploy Script
+#  Fluenta — Web Deploy Script
 #  Despliega el frontend y backend en la plataforma elegida.
 #
 #  Uso:
@@ -124,7 +124,7 @@ deploy_vercel_render() {
   echo "  6. Crea también un MongoDB (New → PostgreSQL → elige MongoDB)"
   echo "     O usa MongoDB Atlas (atlas.mongodb.com — gratis)"
   echo ""
-  read -p "  ¿Cuál es la URL de tu backend en Render? (ej: https://linguaflow-api.onrender.com): " BACKEND_URL
+  read -p "  ¿Cuál es la URL de tu backend en Render? (ej: https://Fluenta-api.onrender.com): " BACKEND_URL
   [[ -z "$BACKEND_URL" ]] && error "Debes ingresar la URL del backend"
   BACKEND_URL="${BACKEND_URL%/}"    # quitar trailing slash
 
@@ -142,7 +142,7 @@ deploy_vercel_render() {
   cat > vercel.json << VERCEL
 {
   "version": 2,
-  "name": "linguaflow",
+  "name": "Fluenta",
   "outputDirectory": "dist",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
   "headers": [
@@ -190,7 +190,7 @@ deploy_netlify_railway() {
   echo "  4. Configura las variables de entorno (ver backend/.env.example)"
   echo "  5. En Settings → Networking → Generate Domain"
   echo ""
-  read -p "  ¿Cuál es la URL de tu backend en Railway? (ej: https://linguaflow-api.up.railway.app): " BACKEND_URL
+  read -p "  ¿Cuál es la URL de tu backend en Railway? (ej: https://Fluenta-api.up.railway.app): " BACKEND_URL
   [[ -z "$BACKEND_URL" ]] && error "Debes ingresar la URL del backend"
   BACKEND_URL="${BACKEND_URL%/}"
 
@@ -207,7 +207,7 @@ deploy_netlify_railway() {
   netlify deploy \
     --dir frontend/dist \
     --prod \
-    --message "LinguaFlow v1.0 deploy" \
+    --message "Fluenta v1.0 deploy" \
     2>&1 | tee /tmp/netlify-output.txt
 
   FRONTEND_URL=$(grep -oP 'https://[^\s]+\.netlify\.app' /tmp/netlify-output.txt | head -1)
@@ -239,7 +239,7 @@ deploy_docker() {
 
   log "Generando archivo .env de producción..."
   cat > "$SCRIPT_DIR/.env.production" << ENV
-# ── LinguaFlow Production Environment ──
+# ── Fluenta Production Environment ──
 # Generado automáticamente el $(date)
 NODE_ENV=production
 MONGO_USER=admin
@@ -253,13 +253,13 @@ SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USER=
 SMTP_PASS=
-FROM_EMAIL=noreply@linguaflow.app
+FROM_EMAIL=noreply@Fluenta.app
 VAPID_PUBLIC_KEY=
 VAPID_PRIVATE_KEY=
-VAPID_EMAIL=admin@linguaflow.app
+VAPID_EMAIL=admin@Fluenta.app
 ENV
 
-  read -p "  ¿Cuál será el dominio/IP de tu servidor? (ej: linguaflow.app o 45.123.45.67): " SERVER_DOMAIN
+  read -p "  ¿Cuál será el dominio/IP de tu servidor? (ej: Fluenta.app o 45.123.45.67): " SERVER_DOMAIN
   SERVER_DOMAIN="${SERVER_DOMAIN:-localhost}"
   echo "CLIENT_URL=https://${SERVER_DOMAIN}" >> "$SCRIPT_DIR/.env.production"
 
@@ -348,10 +348,10 @@ show_guide() {
   echo -e "${C_CYAN}━━ 1. BASE DE DATOS (MongoDB Atlas) ━━${C_RESET}"
   echo "  a) Ve a https://cloud.mongodb.com → Create Free Cluster"
   echo "  b) Elige M0 Sandbox (gratis para siempre)"
-  echo "  c) Database Access → Add User: linguaflow_user / [contraseña fuerte]"
+  echo "  c) Database Access → Add User: Fluenta_user / [contraseña fuerte]"
   echo "  d) Network Access → Add IP: 0.0.0.0/0 (permite todo)"
   echo "  e) Clusters → Connect → Drivers → copia la cadena:"
-  echo "     mongodb+srv://linguaflow_user:<password>@cluster0.xxxxx.mongodb.net/linguaflow"
+  echo "     mongodb+srv://Fluenta_user:<password>@cluster0.xxxxx.mongodb.net/Fluenta"
   echo ""
 
   echo -e "${C_CYAN}━━ 2. BACKEND (Render.com) ━━${C_RESET}"
@@ -367,7 +367,7 @@ show_guide() {
   echo "     JWT_SECRET=<genera con: openssl rand -base64 48>"
   echo "     JWT_REFRESH_SECRET=<genera con: openssl rand -base64 48>"
   echo "     CLIENT_URL=https://tu-app.vercel.app  ← actualizar después"
-  echo "  e) Deploy → copia la URL: https://linguaflow-api.onrender.com"
+  echo "  e) Deploy → copia la URL: https://Fluenta-api.onrender.com"
   echo ""
 
   echo -e "${C_CYAN}━━ 3. FRONTEND (Vercel) ━━${C_RESET}"
@@ -376,12 +376,12 @@ show_guide() {
   echo "  b) Root Directory: frontend"
   echo "  c) Framework: Vite"
   echo "  d) Environment Variables:"
-  echo "     VITE_API_URL = https://linguaflow-api.onrender.com/api"
-  echo "  e) Deploy → copia la URL: https://linguaflow.vercel.app"
+  echo "     VITE_API_URL = https://Fluenta-api.onrender.com/api"
+  echo "  e) Deploy → copia la URL: https://Fluenta.vercel.app"
   echo ""
   echo "  Opción B (con CLI):"
   echo "  cd frontend"
-  echo "  VITE_API_URL=https://linguaflow-api.onrender.com/api npm run build"
+  echo "  VITE_API_URL=https://Fluenta-api.onrender.com/api npm run build"
   echo "  npx vercel deploy --prod"
   echo ""
 
@@ -393,13 +393,13 @@ show_guide() {
   echo ""
 
   echo -e "${C_CYAN}━━ 5. ACTUALIZAR CLIENT_URL ━━${C_RESET}"
-  echo "  En Render → Environment → CLIENT_URL = https://linguaflow.vercel.app"
+  echo "  En Render → Environment → CLIENT_URL = https://Fluenta.vercel.app"
   echo "  Redeploy el backend."
   echo ""
 
   echo -e "${C_BOLD}${C_GREEN}URLs finales:${C_RESET}"
-  echo "  🌐 App:    https://linguaflow.vercel.app"
-  echo "  🔧 API:    https://linguaflow-api.onrender.com"
+  echo "  🌐 App:    https://Fluenta.vercel.app"
+  echo "  🔧 API:    https://Fluenta-api.onrender.com"
   echo "  🗄  DB:    MongoDB Atlas (gestionado)"
   echo ""
   echo "  ¡Tiempo estimado total: ~20 minutos la primera vez!"

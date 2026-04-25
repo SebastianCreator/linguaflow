@@ -1,0 +1,28 @@
+✅ MongoDB connected
+🗑️  Existing languages, lessons and evaluations cleared
+🌍 5 languages inserted
+📚 57 lessons inserted
+📝 10 evaluations inserted
+
+📊 Lessons by language/level:
+   EN A1: 13 lessons
+   EN A2: 10 lessons
+   EN B1: 8 lessons
+   FR A1: 8 lessons
+   DE A1: 6 lessons
+   PT A1: 6 lessons
+   IT A1: 6 lessons
+
+📝 Evaluations by language/level:
+   EN A1 (level): 1 evaluations
+   EN A1 (practice): 1 evaluations
+   EN A2 (level): 1 evaluations
+   EN B1 (level): 1 evaluations
+   EN A1 (placement): 1 evaluations
+   FR A1 (level): 1 evaluations
+   FR A1 (practice): 1 evaluations
+   DE A1 (level): 1 evaluations
+   PT A1 (level): 1 evaluations
+   IT A1 (level): 1 evaluations
+
+🎉 All data loaded successfully!

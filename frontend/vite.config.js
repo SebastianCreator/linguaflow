@@ -10,8 +10,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'icons/*.png'],
       manifest: {
-        name: 'LinguaFlow — Aprende Idiomas',
-        short_name: 'LinguaFlow',
+        name: 'Fluenta — Aprende Idiomas',
+        short_name: 'Fluenta',
         description: 'Plataforma académica de idiomas basada en el MCER',
         theme_color: '#2563EB',
         background_color: '#0F172A',
@@ -29,7 +29,7 @@ export default defineConfig({
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
         runtimeCaching: [
           {
-            urlPattern: /^https:\/\/api\.linguaflow\.app\/api\//,
+            urlPattern: /^https:\/\/api\.fluenta\.app\/api\//,
             handler: 'NetworkFirst',
             options: {
               cacheName: 'api-cache',

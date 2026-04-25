@@ -4,7 +4,7 @@ const logger = require('../utils/logger');
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/linguaflow');
+    const conn = await mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/fluenta');
     logger.info(`✅ MongoDB connected: ${conn.connection.host}`);
 
     mongoose.connection.on('error', (err) => {

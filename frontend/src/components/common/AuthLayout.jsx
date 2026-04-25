@@ -28,7 +28,7 @@ export default function AuthLayout() {
         >
           <Link to="/" className={styles.logo}>
             <span className={styles.logoEmoji}>🌐</span>
-            <span className={styles.logoText}>LinguaFlow</span>
+            <span className={styles.logoText}>Fluenta</span>
           </Link>
 
           <div className={styles.heroContent}>

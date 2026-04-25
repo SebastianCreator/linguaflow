@@ -71,7 +71,7 @@ const useAuthStore = create(
       }
     }),
     {
-      name: 'linguaflow-auth',
+      name: 'fluenta-auth',
       storage: createJSONStorage(() => localStorage),
       partialize: (state) => ({
         token: state.token,

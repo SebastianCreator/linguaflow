@@ -1,4 +1,4 @@
-# ── LinguaFlow Frontend — Dockerfile ──
+# ── Fluenta Frontend — Dockerfile ──
 # Stage 1: Build
 FROM node:18-alpine AS builder
 WORKDIR /app
@@ -7,7 +7,7 @@ RUN npm ci
 COPY . .
 
 # Inject API URL at build time (override with --build-arg)
-ARG VITE_API_URL=https://api.linguaflow.app/api
+ARG VITE_API_URL=https://api.fluenta.app/api
 ENV VITE_API_URL=$VITE_API_URL
 
 RUN npm run build

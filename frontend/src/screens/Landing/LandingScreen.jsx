@@ -29,7 +29,7 @@ export default function LandingScreen() {
       <nav className={styles.nav}>
         <div className={styles.navLogo}>
           <span>🌐</span>
-          <span className={styles.logoText}>LinguaFlow</span>
+          <span className={styles.logoText}>Fluenta</span>
         </div>
         <div className={styles.navLinks}>
           <Link to="/login" className={styles.navLink}>Iniciar sesión</Link>
@@ -108,14 +108,14 @@ export default function LandingScreen() {
       <section className={styles.ctaSection}>
         <motion.div initial={{ opacity:0, y:20 }} whileInView={{ opacity:1, y:0 }} viewport={{ once:true }}>
           <h2 className={styles.ctaTitle}>¿Listo para tu primera lección?</h2>
-          <p className={styles.ctaDesc}>Únete a miles de estudiantes que ya aprenden con LinguaFlow.</p>
+          <p className={styles.ctaDesc}>Únete a miles de estudiantes que ya aprenden con Fluenta.</p>
           <Link to="/register" className={styles.ctaPrimary}>Crear cuenta gratis →</Link>
         </motion.div>
       </section>
 
       {/* Footer */}
       <footer className={styles.footer}>
-        <div className={styles.footerLogo}>🌐 LinguaFlow</div>
+        <div className={styles.footerLogo}>🌐 Fluenta</div>
         <p className={styles.footerText}>Plataforma académica de idiomas basada en el MCER / CEFR</p>
         <div className={styles.footerLinks}>
           <Link to="/login">Acceder</Link>

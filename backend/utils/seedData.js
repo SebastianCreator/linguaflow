@@ -5,7 +5,7 @@ const Lesson = require('../models/Lesson');
 const { Evaluation, Language } = require('../models/index');
 const logger = require('./logger');
 
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/linguaflow';
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/fluenta';
 
 const languages = [
   { code: 'en', name: 'English', nameEs: 'Inglés', flag: '🇬🇧', active: true, levels: ['A1','A2','B1','B2','C1','C2'], difficultyForSpanish: 2, sortOrder: 1 },

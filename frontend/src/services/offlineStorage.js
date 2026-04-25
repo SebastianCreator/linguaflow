@@ -1,7 +1,7 @@
 // src/services/offlineStorage.js
 import { openDB } from 'idb';
 
-const DB_NAME = 'linguaflow-offline';
+const DB_NAME = 'fluenta-offline';
 const DB_VERSION = 1;
 
 const initDB = () => openDB(DB_NAME, DB_VERSION, {

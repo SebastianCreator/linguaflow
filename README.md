@@ -1,8 +1,8 @@
-# 🌐 LinguaFlow — Plataforma Académica de Idiomas (CEFR/MCER)
+# 🌐 Fluenta — Plataforma Académica de Idiomas (CEFR/MCER)
 
 <div align="center">
 
-![LinguaFlow](https://img.shields.io/badge/LinguaFlow-v1.0.0-6366F1?style=for-the-badge)
+![Fluenta](https://img.shields.io/badge/Fluenta-v1.0.0-6366F1?style=for-the-badge)
 ![Node.js](https://img.shields.io/badge/Node.js-18+-339933?style=for-the-badge&logo=node.js)
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react)
 ![MongoDB](https://img.shields.io/badge/MongoDB-7.x-47A248?style=for-the-badge&logo=mongodb)
@@ -50,7 +50,7 @@
 ## 🏗 Arquitectura
 
 ```
-linguaflow/
+Fluenta/
 │
 ├── backend/                    # API REST — Node.js + Express + MongoDB
 │   ├── config/
@@ -184,8 +184,8 @@ linguaflow/
 ### 1. Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/linguaflow.git
-cd linguaflow
+git clone https://github.com/tu-usuario/Fluenta.git
+cd Fluenta
 ```
 
 ### 2. Instalar dependencias
@@ -235,9 +235,9 @@ PORT=5000
 CLIENT_URL=http://localhost:3000
 
 # MongoDB
-MONGO_URI=mongodb://localhost:27017/linguaflow
+MONGO_URI=mongodb://localhost:27017/Fluenta
 # O con MongoDB Atlas:
-# MONGO_URI=mongodb+srv://usuario:password@cluster.mongodb.net/linguaflow
+# MONGO_URI=mongodb+srv://usuario:password@cluster.mongodb.net/Fluenta
 
 # JWT — genera claves seguras con: openssl rand -base64 64
 JWT_SECRET=tu_clave_jwt_super_secreta
@@ -280,7 +280,7 @@ npm run dev:frontend   # http://localhost:3000
 
 **Credenciales de demo:**
 ```
-Email:    demo@linguaflow.app
+Email:    demo@Fluenta.app
 Password: Demo1234
 ```
 *(Si ejecutaste el seed, crea manualmente este usuario o usa el formulario de registro)*
@@ -310,13 +310,13 @@ npm run build
 # Los archivos quedan en frontend/dist/
 
 # 2. Servir con Nginx
-# Copia frontend/dist/ a /var/www/linguaflow/
+# Copia frontend/dist/ a /var/www/Fluenta/
 # Configura nginx para SPA (try_files $uri /index.html)
 
 # 3. Backend con PM2
 cd backend
 npm install -g pm2
-pm2 start server.js --name linguaflow-api
+pm2 start server.js --name Fluenta-api
 pm2 save && pm2 startup
 ```
 
@@ -337,7 +337,7 @@ pm2 save && pm2 startup
 
 ```bash
 # Variables en producción
-MONGO_URI=mongodb+srv://user:pass@cluster.mongodb.net/linguaflow
+MONGO_URI=mongodb+srv://user:pass@cluster.mongodb.net/Fluenta
 NODE_ENV=production
 CLIENT_URL=https://tudominio.com
 ```
@@ -389,8 +389,8 @@ cd mobile
 
 # Generar keystore (solo primera vez)
 keytool -genkeypair -v -storetype PKCS12 \
-  -keystore android/app/linguaflow.keystore \
-  -alias linguaflow -keyalg RSA -keysize 2048 -validity 10000
+  -keystore android/app/Fluenta.keystore \
+  -alias Fluenta -keyalg RSA -keysize 2048 -validity 10000
 
 # Build release AAB (recomendado para Play Store)
 cd android
@@ -408,7 +408,7 @@ cd android
 cd mobile
 
 # Build en Xcode:
-# 1. Abre ios/LinguaFlow.xcworkspace en Xcode
+# 1. Abre ios/Fluenta.xcworkspace en Xcode
 # 2. Selecciona "Any iOS Device"
 # 3. Product → Archive
 # 4. Distribute App → App Store Connect / Ad Hoc
@@ -564,5 +564,5 @@ MIT License — libre para uso personal y comercial.
 <div align="center">
   Hecho con ❤️ para el aprendizaje de idiomas
   <br/>
-  <strong>LinguaFlow</strong> — Domina cualquier idioma a tu ritmo
+  <strong>Fluenta</strong> — Domina cualquier idioma a tu ritmo
 </div>
