@@ -4,6 +4,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import toast from 'react-hot-toast';
 import { evaluationsAPI } from '../../services/api';
+import { speak } from '../../services/speechService';
 import { LevelBadge, Badge } from '../../components/common/Card';
 import { ProgressBar } from '../../components/common/Card';
 import Button from '../../components/common/Button';
@@ -242,8 +243,8 @@ export default function EvaluationPlayerScreen() {
             </div>
           )}
 
-          {/* Fill-in / Translation / Essay */}
-          {['fill-in-blank', 'translation', 'essay'].includes(q?.type) && (
+          {/* Fill-in / Translation / Essay / Cloze */}
+          {['fill-in-blank', 'translation', 'essay', 'interleaved'].includes(q?.type) && (
             <input
               type="text"
               className={styles.evalInput}
@@ -251,6 +252,36 @@ export default function EvaluationPlayerScreen() {
               onChange={e => setAnswer(e.target.value)}
               placeholder="Tu respuesta..."
             />
+          )}
+
+          {/* Dictation */}
+          {q?.type === 'dictation' && (
+            <div className={styles.dictationWrap}>
+              <button className={styles.audioBtn} onClick={() => speak(q.prompt.replace(/Listen and write: |Listen: /gi, ''), language)}>🔊 Escuchar audio</button>
+              <input
+                type="text"
+                className={styles.evalInput}
+                value={answers[currentQ] || ''}
+                onChange={e => setAnswer(e.target.value)}
+                placeholder="Escribe lo que escuchaste..."
+              />
+            </div>
+          )}
+
+          {/* Matching */}
+          {q?.type === 'matching' && (
+            <div className={styles.evalOptions}>
+              {q.options?.map((opt, i) => (
+                <button
+                  key={i}
+                  className={[styles.evalOption, answers[currentQ] === opt ? styles.evalOptionSel : ''].join(' ')}
+                  onClick={() => setAnswer(opt)}
+                >
+                  <span className={styles.evalOptionLetter}>{String.fromCharCode(65+i)}</span>
+                  {opt}
+                </button>
+              ))}
+            </div>
           )}
         </motion.div>
       </AnimatePresence>

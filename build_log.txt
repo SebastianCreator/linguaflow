@@ -1,0 +1,34 @@
+
+> fluenta-frontend@1.0.0 build
+> vite build
+
+[33mThe CJS build of Vite's Node API is deprecated. See https://vite.dev/guide/troubleshooting.html#vite-cjs-node-api-deprecated for more details.[39m
+[36mvite v5.4.21 [32mbuilding for production...[36m[39m
+transforming...
+[32m✓[39m 425 modules transformed.
+rendering chunks...
+[1m[33m[plugin:vite:reporter][39m[22m [33m[plugin vite:reporter] 
+(!) C:/Users/ROSE/Desktop/linguaflow/frontend/src/store/authStore.js is dynamically imported by C:/Users/ROSE/Desktop/linguaflow/frontend/src/services/api.js but also statically imported by C:/Users/ROSE/Desktop/linguaflow/frontend/src/App.jsx, C:/Users/ROSE/Desktop/linguaflow/frontend/src/components/common/AppLayout.jsx, C:/Users/ROSE/Desktop/linguaflow/frontend/src/screens/Auth/LoginScreen.jsx, C:/Users/ROSE/Desktop/linguaflow/frontend/src/screens/Auth/RegisterScreen.jsx, C:/Users/ROSE/Desktop/linguaflow/frontend/src/screens/Dashboard/DashboardScreen.jsx, C:/Users/ROSE/Desktop/linguaflow/frontend/src/screens/Dashboard/LanguagesScreen.jsx, C:/Users/ROSE/Desktop/linguaflow/frontend/src/screens/Lessons/LessonsScreen.jsx, C:/Users/ROSE/Desktop/linguaflow/frontend/src/screens/Profile/ProfileScreen.jsx, dynamic import will not move module into another chunk.
+[39m
+[1m[33m[plugin:vite:reporter][39m[22m [33m[plugin vite:reporter] 
+(!) C:/Users/ROSE/Desktop/linguaflow/frontend/src/services/offlineStorage.js is dynamically imported by C:/Users/ROSE/Desktop/linguaflow/frontend/src/screens/Profile/ProfileScreen.jsx but also statically imported by C:/Users/ROSE/Desktop/linguaflow/frontend/src/screens/Lessons/LessonPlayerScreen.jsx, C:/Users/ROSE/Desktop/linguaflow/frontend/src/screens/Profile/ProfileScreen.jsx, dynamic import will not move module into another chunk.
+[39m
+computing gzip size...
+[2mdist/[22m[32mregisterSW.js              [39m[1m[2m  0.13 kB[22m[1m[22m
+[2mdist/[22m[32mmanifest.webmanifest       [39m[1m[2m  0.48 kB[22m[1m[22m
+[2mdist/[22m[32mindex.html                 [39m[1m[2m  1.59 kB[22m[1m[22m[2m │ gzip:  0.71 kB[22m
+[2mdist/[22m[35massets/index-UVlyLhPs.css  [39m[1m[2m 55.68 kB[22m[1m[22m[2m │ gzip: 10.63 kB[22m
+[2mdist/[22m[36massets/state-CERjsDtc.js   [39m[1m[2m  3.64 kB[22m[1m[22m[2m │ gzip:  1.61 kB[22m[2m │ map:  14.52 kB[22m
+[2mdist/[22m[36massets/motion-38PXqlFV.js  [39m[1m[2m102.08 kB[22m[1m[22m[2m │ gzip: 34.48 kB[22m[2m │ map: 580.30 kB[22m
+[2mdist/[22m[36massets/index-CCcRXput.js   [39m[1m[2m150.79 kB[22m[1m[22m[2m │ gzip: 50.01 kB[22m[2m │ map: 468.24 kB[22m
+[2mdist/[22m[36massets/vendor-D1pjVBZ4.js  [39m[1m[2m164.15 kB[22m[1m[22m[2m │ gzip: 53.58 kB[22m[2m │ map: 707.34 kB[22m
+[32m✓ built in 5.90s[39m
+
+PWA v0.17.5
+mode      generateSW
+precache  8 entries (467.56 KiB)
+files generated
+  dist\sw.js.map
+  dist\sw.js
+  dist\workbox-425bcd74.js.map
+  dist\workbox-425bcd74.js
