@@ -1,0 +1,19 @@
+✅ MongoDB connected
+🗑️  Collections cleared
+🌍 5 languages inserted
+📚 10 ACTIVE lessons inserted
+📝 6 ACTIVE evaluations inserted
+
+🎯 Active learning methods used:
+   cloze: 8 exercises
+   dictation: 7 exercises
+   scramble: 7 exercises
+   task-based: 6 exercises
+   shadowing: 5 exercises
+   image-match: 4 exercises
+   conversation-sim: 4 exercises
+   interleaved: 3 exercises
+   mnemonic: 1 exercises
+   voice-record: 1 exercises
+
+🎉 Active learning data loaded successfully!

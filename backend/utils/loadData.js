@@ -1,25 +1,19 @@
 // backend/utils/loadData.js
-// Carga todas las lecciones, evaluaciones e idiomas en MongoDB
-// Uso: node utils/loadData.js  o  npm run load
+// Carga datos con METODOS DE APRENDIZAJE ACTIVOS a MongoDB
+// Uso: npm run load
 
 require('dotenv').config();
 const mongoose = require('mongoose');
 const Lesson = require('../models/Lesson');
 const { Evaluation, Language } = require('../models/index');
 
-// ── Importar todos los archivos de datos ──────────────
+// ── NUEVOS datos con métodos activos ──────────────────
 const lessons = [
-  ...require('../data/lessons/en_A1'),
-  ...require('../data/lessons/en_A2'),
-  ...require('../data/lessons/en_B1'),
-  ...require('../data/lessons/fr_A1'),
-  ...require('../data/lessons/de_A1'),
-  ...require('../data/lessons/pt_A1'),
-  ...require('../data/lessons/it_A1'),
+  ...require('../data/lessons/en_A1_active'),
 ];
 
 const evaluations = [
-  ...require('../data/evaluations/all_evaluations'),
+  ...require('../data/evaluations/evaluations_active'),
 ];
 
 const languages = [
@@ -32,50 +26,44 @@ const languages = [
 
 async function loadData() {
   try {
-    const uri = process.env.MONGO_URI || 'mongodb://localhost:27017/fluenta';
+    const uri = process.env.MONGO_URI || 'mongodb://localhost:27017/linguaflow';
     await mongoose.connect(uri);
     console.log('✅ MongoDB connected');
 
-    // ── Limpiar colecciones existentes ──────────────
+    // ── Limpiar colecciones ──────────────────────────
     await Language.deleteMany({});
     await Lesson.deleteMany({});
     await Evaluation.deleteMany({});
-    console.log('🗑️  Existing languages, lessons and evaluations cleared');
+    console.log('🗑️  Collections cleared');
 
     // ── Insertar idiomas ─────────────────────────────
     const insertedLanguages = await Language.insertMany(languages);
     console.log(`🌍 ${insertedLanguages.length} languages inserted`);
 
-    // ── Insertar lecciones ───────────────────────────
+    // ── Insertar lecciones (MÉTODOS ACTIVOS) ─────────
     const insertedLessons = await Lesson.insertMany(lessons);
-    console.log(`📚 ${insertedLessons.length} lessons inserted`);
+    console.log(`📚 ${insertedLessons.length} ACTIVE lessons inserted`);
 
-    // ── Insertar evaluaciones ────────────────────────
+    // ── Insertar evaluaciones (ADAPTATIVAS) ──────────
     const insertedEvals = await Evaluation.insertMany(evaluations);
-    console.log(`📝 ${insertedEvals.length} evaluations inserted`);
+    console.log(`📝 ${insertedEvals.length} ACTIVE evaluations inserted`);
 
-    // ── Resumen por idioma ───────────────────────────
-    const summary = {};
+    // ── Resumen de métodos de aprendizaje usados ─────
+    const methodCount = {};
     lessons.forEach(l => {
-      const key = `${l.languageCode.toUpperCase()} ${l.level}`;
-      summary[key] = (summary[key] || 0) + 1;
+      l.exercises.forEach(e => {
+        methodCount[e.type] = (methodCount[e.type] || 0) + 1;
+      });
     });
-    console.log('\n📊 Lessons by language/level:');
-    Object.entries(summary).forEach(([k, v]) => console.log(`   ${k}: ${v} lessons`));
+    console.log('\n🎯 Active learning methods used:');
+    Object.entries(methodCount)
+      .sort((a, b) => b[1] - a[1])
+      .forEach(([method, count]) => console.log(`   ${method}: ${count} exercises`));
 
-    // ── Resumen de evaluaciones ──────────────────────
-    const evalSummary = {};
-    evaluations.forEach(e => {
-      const key = `${e.languageCode.toUpperCase()} ${e.level} (${e.type})`;
-      evalSummary[key] = (evalSummary[key] || 0) + 1;
-    });
-    console.log('\n📝 Evaluations by language/level:');
-    Object.entries(evalSummary).forEach(([k, v]) => console.log(`   ${k}: ${v} evaluations`));
-
-    console.log('\n🎉 All data loaded successfully!');
+    console.log('\n🎉 Active learning data loaded successfully!');
     process.exit(0);
   } catch (err) {
-    console.error('❌ Error loading data:', err.message);
+    console.error('❌ Error:', err.message);
     process.exit(1);
   }
 }

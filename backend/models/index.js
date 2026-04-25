@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 const questionSchema = new mongoose.Schema({
-  type: { type: String, enum: ['multiple-choice', 'fill-in-blank', 'matching', 'essay', 'audio', 'translation'], required: true },
+  type: { type: String, enum: ['multiple-choice', 'fill-in-blank', 'matching', 'essay', 'audio', 'translation', 'dictation', 'scramble', 'image-match', 'conversation-sim', 'cloze', 'shadowing', 'task-based', 'adaptive'], required: true },
   section: { type: String, enum: ['grammar', 'vocabulary', 'reading', 'listening', 'writing', 'speaking'] },
   prompt: { type: String, required: true },
   audioUrl: String,

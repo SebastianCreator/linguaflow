@@ -5,7 +5,9 @@ const exerciseSchema = new mongoose.Schema({
   type: {
     type: String,
     enum: ['multiple-choice', 'fill-in-blank', 'matching', 'translation',
-           'drag-drop', 'audio-listen', 'voice-record', 'essay', 'true-false'],
+           'drag-drop', 'audio-listen', 'voice-record', 'essay', 'true-false',
+           'dictation', 'scramble', 'image-match', 'conversation-sim',
+           'cloze', 'shadowing', 'mnemonic', 'task-based', 'interleaved'],
     required: true
   },
   prompt: { type: String, required: true },

@@ -1,36 +1,43 @@
-# ✅ TODO — Sincronizar datos a MongoDB Atlas (COMPLETADO)
+# ✅ SINCRONIZACIÓN COMPLETADA — Métodos de Aprendizaje Activos
 
-## Pasos completados
-- [x] 1. Crear `backend/.env` con MONGO_URI de Atlas
-- [x] 2. Agregar script `load` a `backend/package.json`
-- [x] 3. Actualizar `backend/utils/loadData.js` para sincronizar idiomas
-- [x] 4. Ejecutar `npm run load` para subir datos
-- [x] 5. Verificar en MongoDB Atlas que todo cargó correctamente
+## Estado final de MongoDB Atlas
 
-## Resultado de la carga a MongoDB Atlas
+| Colección | Documentos |
+|-----------|-----------|
+| `languages` | 5 |
+| `lessons` | 10 (métodos activos) |
+| `evaluations` | 6 (adaptativas) |
+
+## 🎯 Métodos de aprendizaje implementados
+
+| Método | Ejercicios | Descripción |
+|--------|-----------|-------------|
+| **cloze** | 8 | Completar huecos con contexto |
+| **dictation** | 7 | Escuchar y escribir exactamente |
+| **scramble** | 7 | Reordenar palabras en oraciones |
+| **task-based** | 6 | Completar tareas de la vida real |
+| **shadowing** | 5 | Repetir simultáneamente con audio |
+| **image-match** | 4 | Asociar palabras con imágenes |
+| **conversation-sim** | 4 | Simular diálogos con opciones |
+| **interleaved** | 3 | Práctica intercalada mixta |
+| **mnemonic** | 1 | Crear mnemónicos personales |
+| **voice-record** | 1 | Grabar pronunciación propia |
+
+## 📁 Archivos creados/modificados
+
+- `backend/models/Lesson.js` — nuevos tipos de ejercicio en enum
+- `backend/models/index.js` — nuevos tipos de pregunta en enum
+- `backend/data/lessons/en_A1_active.js` — 10 lecciones con métodos activos
+- `backend/data/evaluations/evaluations_active.js` — 6 evaluaciones adaptativas
+- `backend/utils/loadData.js` — script actualizado para cargar contenido activo
+
+## 🔄 Para recargar datos en el futuro
+
+```bash
+cd backend && npm run load
 ```
-✅ MongoDB connected
-🗑️  Existing languages, lessons and evaluations cleared
-🌍 5 languages inserted
-📚 57 lessons inserted
-📝 10 evaluations inserted
 
-📊 Lessons by language/level:
-   EN A1: 13 lessons
-   EN A2: 10 lessons
-   EN B1: 8 lessons
-   FR A1: 8 lessons
-   DE A1: 6 lessons
-   PT A1: 6 lessons
-   IT A1: 6 lessons
+## ⚠️ Nota sobre compatibilidad del frontend
 
-📝 Evaluations by language/level:
-   EN A1 (level): 1     EN A1 (practice): 1     EN A2 (level): 1
-   EN B1 (level): 1     EN A1 (placement): 1    FR A1 (level): 1
-   FR A1 (practice): 1  DE A1 (level): 1        PT A1 (level): 1
-   IT A1 (level): 1
-```
+Los nuevos tipos de ejercicio (`dictation`, `scramble`, `cloze`, `conversation-sim`, etc.) requieren componentes de UI específicos en el frontend para renderizarse correctamente. Los tipos antiguos (`multiple-choice`, `fill-in-blank`, etc.) siguen funcionando.
 
-## Renombrado a Fluenta — Verificado ✅
-- Búsqueda exhaustiva: **0 referencias** a "linguaflow/LinguaFlow" restantes en el codebase
-- Todos los archivos de config, código fuente y metadatos actualizados consistentemente
